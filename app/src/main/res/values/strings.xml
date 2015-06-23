@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lab_50_82</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Values for buttons in the multithreading activity -->
+    <string name="add_in_thread_directly">Add in thread directly</string>
+    <string name="add_in_thread_via_handler">Add in thread via Handler</string>
+    <string name="add_in_async_task">Add in async task</string>
+
+    <!--Values for buttons in the main activity -->
+    <string name="button_50_label">Launch Lab #50</string>
+    <string name="button_82_label">Launch Lab #82</string>
+    <string name="title_activity_multithreading">MultithreadingActivity</string>
+</resources>
