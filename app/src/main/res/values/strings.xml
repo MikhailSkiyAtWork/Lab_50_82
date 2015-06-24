@@ -13,4 +13,28 @@
     <string name="button_50_label">Launch Lab #50</string>
     <string name="button_82_label">Launch Lab #82</string>
     <string name="title_activity_multithreading">MultithreadingActivity</string>
+    <string name="title_activity_pi">PiActivity</string>
+
+    <!--Values for buttons in the pi activity -->
+    <string name="start_label">Start</string>
+    <string name="cancel_label">Cancel</string>
+
+    <!--Values for Service -->
+    <string name="success_label">Success!</string>
+    <string name="success_message">Success! PI calculated with precision </string>
+    <string name="K">K</string>
+
+    <!--Values for precision in the spinner -->
+    <string name="_32K">32K</string>
+    <string name="_64K">64K</string>
+    <string name="_128K">128K</string>
+    <string name="_256K">256K</string>
+    <string name="_512K">512K</string>
+    <string name="_1M">1M</string>
+    <string name="_2M">2M</string>
+    <string name="_4M">4M</string>
+    <string name="_8M">8M</string>
+    <string name="_16M">16M</string>
+    <string name="_32M">32M</string>
+
 </resources>

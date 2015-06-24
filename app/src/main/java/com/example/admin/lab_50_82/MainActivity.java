@@ -33,8 +33,8 @@ public class MainActivity extends ActionBarActivity {
         launcher82.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                 // Intent intent = new Intent(MainActivity.this, ActivityForLab57.class);
-                 // startActivity(intent);
+                  Intent intent = new Intent(MainActivity.this, PiActivity.class);
+                  startActivity(intent);
               }
           }
         );

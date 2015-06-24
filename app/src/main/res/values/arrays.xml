@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="precisions_array">
+        <item>-32K</item>
+        <item>-64K</item>
+        <item>-128K</item>
+        <item>-256K</item>
+        <item>-512K</item>
+        <item>-1M</item>
+        <item>-2M</item>
+        <item>-4M</item>
+        <item>-8M</item>
+        <item>-16M</item>
+        <item>-32M</item>
+    </string-array>
+</resources>
