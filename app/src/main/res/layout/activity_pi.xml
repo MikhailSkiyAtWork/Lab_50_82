@@ -22,16 +22,10 @@
 
     <Button
         android:id="@+id/cancel_button"
+        android:visibility="invisible"
         android:layout_below="@+id/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cancel_label" />
-
-    <ProgressBar
-        android:layout_below="@+id/cancel_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true">
-    </ProgressBar>
 
 </RelativeLayout>

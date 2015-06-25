@@ -21,8 +21,11 @@
 
     <!--Values for Service -->
     <string name="success_label">Success!</string>
-    <string name="success_message">Success! PI calculated with precision </string>
-    <string name="K">K</string>
+    <string name="success_message">Success! PI calculated with precision \u0020</string>
+    <string name="in_progress">Calculating PI with precision \u0020</string>
+
+    <!--Values for Shared Preferences -->
+    <string name="precision">precision</string>
 
     <!--Values for precision in the spinner -->
     <string name="_32K">32K</string>
