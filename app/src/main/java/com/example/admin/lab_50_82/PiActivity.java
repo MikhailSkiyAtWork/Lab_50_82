@@ -22,9 +22,10 @@ public class PiActivity extends ActionBarActivity {
     private final static int MILLION = 1000000;
     private Spinner spinner_;
     private ArrayAdapter<String> spinnerAdapter_;
+
+    public static boolean active = false;
     public static Button startButton;
     public static Button cancelButton;
-
     public static String precision_;
 
     @Override
@@ -93,6 +94,12 @@ public class PiActivity extends ActionBarActivity {
     }
 
     @Override
+    public void onStart(){
+        super.onStart();
+        active = true;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_pi, menu);
@@ -112,6 +119,12 @@ public class PiActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        active = false;
     }
 
     /**

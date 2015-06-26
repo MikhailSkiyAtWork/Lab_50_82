@@ -40,4 +40,11 @@
     <string name="_16M">16M</string>
     <string name="_32M">32M</string>
 
+    <!-- Values for Shared Preferences -->
+    <string name="progressPreferences">computationsParams</string>
+    <string name="progresStatus">ProgresStatus</string>
+    <string name="progressMax">ProgressMax</string>
+    <string name="currentSum">CurrentSum</string>
+    <string name="shortPrecision">shortPrecision</string>
+
 </resources>

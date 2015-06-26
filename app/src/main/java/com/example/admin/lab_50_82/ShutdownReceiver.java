@@ -12,16 +12,11 @@ import android.util.Log;
  */
 public class ShutdownReceiver extends BroadcastReceiver{
     private static final String TAG = "ShutdownReceiver";
-    private static final String MY_PREFS = "computationsParams";
 
     @Override
     public void onReceive (Context context, Intent intent){
         Log.v(TAG, "Shutting Down..........................");
         if("android.intent.action.ACTION_SHUTDOWN".equals(intent.getAction())) {
-            int i = intent.getIntExtra("Counter",1);
-            SharedPreferences.Editor editor = context.getSharedPreferences(MY_PREFS, Context.MODE_PRIVATE).edit();
-            editor.putInt("Counter",i);
-            editor.commit();
             //Power Off
         }
     }
