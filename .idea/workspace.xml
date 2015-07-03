@@ -34,19 +34,23 @@
       <file leaf-file-name="MultithreadingActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12371134">
-              <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+            <state vertical-scroll-proportion="-1.2577319">
+              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
               <folding>
                 <element signature="e#1282#1327#0" expanded="true" />
-                <element signature="e#2088#2134#0" expanded="true" />
-                <element signature="e#2344#2679#0" expanded="true" />
-                <element signature="e#2494#2540#0" expanded="true" />
-                <element signature="e#2678#2679#0" expanded="true" />
-                <element signature="e#2884#2930#0" expanded="true" />
-                <element signature="e#3827#4544#0" expanded="true" />
-                <element signature="e#4176#4500#0" expanded="true" />
-                <element signature="e#4499#4500#0" expanded="true" />
-                <element signature="e#4543#4544#0" expanded="true" />
+                <element signature="e#1615#1877#0" expanded="true" />
+                <element signature="e#1876#1877#0" expanded="true" />
+                <element signature="e#1924#2285#0" expanded="true" />
+                <element signature="e#2074#2120#0" expanded="true" />
+                <element signature="e#2284#2285#0" expanded="true" />
+                <element signature="e#2330#2665#0" expanded="true" />
+                <element signature="e#2480#2526#0" expanded="true" />
+                <element signature="e#2664#2665#0" expanded="true" />
+                <element signature="e#2870#2916#0" expanded="true" />
+                <element signature="e#3813#4530#0" expanded="true" />
+                <element signature="e#4162#4486#0" expanded="true" />
+                <element signature="e#4485#4486#0" expanded="true" />
+                <element signature="e#4529#4530#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1566,7 +1570,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="63e3792" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_22" />
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -1731,7 +1735,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1756,36 +1760,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
-          <line>92</line>
+          <line>90</line>
           <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
-          <line>207</line>
-          <properties />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
           <line>205</line>
           <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
+          <line>203</line>
+          <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
-          <line>204</line>
+          <line>202</line>
           <properties class="com.example.admin.lab_50_82.MultithreadingActivity" method="onOffButtons" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java</url>
-          <line>191</line>
+          <line>189</line>
           <properties class="com.example.admin.lab_50_82.MultithreadingActivity" method="isItTenthItem" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -1801,15 +1799,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1282#1327#0" expanded="true" />
-            <element signature="e#2088#2134#0" expanded="true" />
-            <element signature="e#2344#2679#0" expanded="true" />
-            <element signature="e#2494#2540#0" expanded="true" />
-            <element signature="e#2678#2679#0" expanded="true" />
-            <element signature="e#2884#2930#0" expanded="true" />
-            <element signature="e#3827#4544#0" expanded="true" />
-            <element signature="e#4176#4500#0" expanded="true" />
-            <element signature="e#4499#4500#0" expanded="true" />
-            <element signature="e#4543#4544#0" expanded="true" />
+            <element signature="e#1615#1877#0" expanded="true" />
+            <element signature="e#1876#1877#0" expanded="true" />
+            <element signature="e#1924#2285#0" expanded="true" />
+            <element signature="e#2074#2120#0" expanded="true" />
+            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2330#2665#0" expanded="true" />
+            <element signature="e#2480#2526#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
+            <element signature="e#2870#2916#0" expanded="true" />
+            <element signature="e#3813#4530#0" expanded="true" />
+            <element signature="e#4162#4486#0" expanded="true" />
+            <element signature="e#4485#4486#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1972,19 +1974,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/admin/lab_50_82/MultithreadingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12371134">
-          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+        <state vertical-scroll-proportion="-1.2577319">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
           <folding>
             <element signature="e#1282#1327#0" expanded="true" />
-            <element signature="e#2088#2134#0" expanded="true" />
-            <element signature="e#2344#2679#0" expanded="true" />
-            <element signature="e#2494#2540#0" expanded="true" />
-            <element signature="e#2678#2679#0" expanded="true" />
-            <element signature="e#2884#2930#0" expanded="true" />
-            <element signature="e#3827#4544#0" expanded="true" />
-            <element signature="e#4176#4500#0" expanded="true" />
-            <element signature="e#4499#4500#0" expanded="true" />
-            <element signature="e#4543#4544#0" expanded="true" />
+            <element signature="e#1615#1877#0" expanded="true" />
+            <element signature="e#1876#1877#0" expanded="true" />
+            <element signature="e#1924#2285#0" expanded="true" />
+            <element signature="e#2074#2120#0" expanded="true" />
+            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2330#2665#0" expanded="true" />
+            <element signature="e#2480#2526#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
+            <element signature="e#2870#2916#0" expanded="true" />
+            <element signature="e#3813#4530#0" expanded="true" />
+            <element signature="e#4162#4486#0" expanded="true" />
+            <element signature="e#4485#4486#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
           </folding>
         </state>
       </provider>

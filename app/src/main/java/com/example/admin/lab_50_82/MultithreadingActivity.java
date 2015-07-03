@@ -51,9 +51,7 @@ public class MultithreadingActivity extends ActionBarActivity {
                 if (isItTenthItem(message.what)) {
                     onOffButtons(true);
                 }
-            }
-
-            ;
+            };
         };
 
         launchAsyncTask_.setOnClickListener(new View.OnClickListener() {
