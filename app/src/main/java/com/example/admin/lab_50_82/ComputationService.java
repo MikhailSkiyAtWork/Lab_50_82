@@ -13,8 +13,6 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
 
-import java.text.ParsePosition;
-
 public class ComputationService extends Service {
 
     private ComputationService context_ = this;
@@ -85,9 +83,9 @@ public class ComputationService extends Service {
             // Before start we should check counter value, and decide to start from 0 or from last point
             getSavedValues();
 
-            if (PiActivity.precision_ == null) {
+            if (PiActivity.precision == null) {
                 postfix = Integer.toString(shortPrecision);
-            } else postfix = PiActivity.precision_;
+            } else postfix = PiActivity.precision;
 
             // Prepare notification, set parameters
 

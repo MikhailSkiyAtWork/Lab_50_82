@@ -1,8 +1,10 @@
 package com.example.admin.lab_50_82;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,17 +24,16 @@ public class PiActivity extends ActionBarActivity {
     private final static int MILLION = 1000000;
     private Spinner spinner_;
     private ArrayAdapter<String> spinnerAdapter_;
+    private static Button startButton_;
+    private static Button cancelButton_;
 
     public static boolean active = false;
-    public static Button startButton;
-    public static Button cancelButton;
-    public static String precision_;
+    public static String precision;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pi);
-
         final TreeMap<String, Integer> precisionValues = new TreeMap<String, Integer>();
         {
             precisionValues.put(getResources().getString(R.string._32K), 32 * THOUSAND);
@@ -61,7 +62,7 @@ public class PiActivity extends ActionBarActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                precision_ = parent.getItemAtPosition(pos).toString();
+                precision = parent.getItemAtPosition(pos).toString();
             }
 
             @Override
@@ -71,19 +72,19 @@ public class PiActivity extends ActionBarActivity {
         });
 
         // Starting service
-        startButton = (Button) findViewById(R.id.start_button);
-        cancelButton = (Button) findViewById(R.id.cancel_button);
-        startButton.setOnClickListener(new View.OnClickListener() {
+        startButton_ = (Button) findViewById(R.id.start_button);
+        cancelButton_ = (Button) findViewById(R.id.cancel_button);
+        startButton_.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    holdCancelButton();
-                   startService(new Intent(getApplicationContext(), ComputationService.class).putExtra(getResources().getString(R.string.precision), precisionValues.get(precision_)));
+                   startService(new Intent(getApplicationContext(), ComputationService.class).putExtra(getResources().getString(R.string.precision), precisionValues.get(precision)));
                }
            }
         );
 
         // Finishing service
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton_.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     holdStartButton();
@@ -94,9 +95,20 @@ public class PiActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         active = true;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        if (isComputationServiceRunning(ComputationService.class)) {
+            holdCancelButton();
+        } else {
+            holdStartButton();
+        }
     }
 
     @Override
@@ -128,18 +140,32 @@ public class PiActivity extends ActionBarActivity {
     }
 
     /**
-     * Sets startButton Visible and Cancel buttin invisible
+     * Sets startButton_ Visible and Cancel button invisible
      */
     public static void holdStartButton() {
-        startButton.setVisibility(View.VISIBLE);
-        cancelButton.setVisibility(View.INVISIBLE);
+        startButton_.setVisibility(View.VISIBLE);
+        cancelButton_.setVisibility(View.INVISIBLE);
     }
 
     /**
-     * Sets cancelButton Visible and startButton Invisible
+     * Sets cancelButton_ Visible and startButton_ Invisible
      */
     public static void holdCancelButton() {
-        startButton.setVisibility(View.INVISIBLE);
-        cancelButton.setVisibility(View.VISIBLE);
+        startButton_.setVisibility(View.INVISIBLE);
+        cancelButton_.setVisibility(View.VISIBLE);
     }
+
+    private boolean isComputationServiceRunning(Class<?> ComputationService){
+        boolean isRunning = false;
+        ActivityManager manager = (ActivityManager)getSystemService(getBaseContext().ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service: manager.getRunningServices(Integer.MAX_VALUE)){
+            if (ComputationService.getName().equals(service.service.getClassName())){
+                isRunning = true;
+            } else {
+                isRunning = false;
+            }
+        }
+        return isRunning;
+    }
+
 }
