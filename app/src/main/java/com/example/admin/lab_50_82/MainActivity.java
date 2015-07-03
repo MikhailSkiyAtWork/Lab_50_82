@@ -15,10 +15,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Button for launching activity for Lab #56
-        Button launchActivity50Button = (Button) findViewById(R.id.launch_50_activity_button);
+        // Button for launching activity for Lab #50
+        Button lab50Launcher = (Button) findViewById(R.id.launch_50_activity_button);
 
-        launchActivity50Button.setOnClickListener(new View.OnClickListener() {
+        lab50Launcher.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
                   Intent intent = new Intent(MainActivity.this, MultithreadingActivity.class);
@@ -27,14 +27,14 @@ public class MainActivity extends ActionBarActivity {
           }
         );
 
-        // Button for launching activity for Lab #57
-        Button launcher82 = (Button) findViewById(R.id.launch_82_activity_button);
+        // Button for launching activity for Lab #82
+        Button lab82Launcher = (Button) findViewById(R.id.launch_82_activity_button);
 
-        launcher82.setOnClickListener(new View.OnClickListener() {
+        lab82Launcher.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                 // Intent intent = new Intent(MainActivity.this, ActivityForLab57.class);
-                 // startActivity(intent);
+                  // Intent intent = new Intent(MainActivity.this, ActivityForLab57.class);
+                  // startActivity(intent);
               }
           }
         );

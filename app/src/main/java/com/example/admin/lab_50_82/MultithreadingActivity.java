@@ -22,7 +22,6 @@ public class MultithreadingActivity extends ActionBarActivity {
     private Button launchAsyncTask_;
     private Button launchThread_;
     private Button launchThreadViaHandler_;
-
     private ListView listView_;
     private ArrayAdapter<String> adapter_;
     private ArrayList<String> list_;
@@ -38,7 +37,7 @@ public class MultithreadingActivity extends ActionBarActivity {
         launchThread_ = (Button) findViewById(R.id.add_in_thread_directly);
         launchThreadViaHandler_ = (Button) findViewById(R.id.add_in_thread_via_handler);
 
-        String[] values = new String[]{"Android List View"};
+        String[] values = new String[]{getResources().getString(R.string.item_label)};
         listView_ = (ListView) this.findViewById(R.id.list_view);
 
         list_ = new ArrayList<String>(Arrays.asList(values));
@@ -61,7 +60,7 @@ public class MultithreadingActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 list_.clear();
-                list_.add("Added");
+                list_.add(getResources().getString(R.string.added_label));
                 adapter_.notifyDataSetChanged();
                 new addItemViaAsyncTask().execute();
                 onOffButtons(false);
@@ -72,7 +71,7 @@ public class MultithreadingActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 list_.clear();
-                list_.add("Added");
+                list_.add(getResources().getString(R.string.added_label));
                 adapter_.notifyDataSetChanged();
                 addItem();
                 onOffButtons(false);
@@ -83,7 +82,7 @@ public class MultithreadingActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 list_.clear();
-                list_.add("Added");
+                list_.add(getResources().getString(R.string.added_label));
                 adapter_.notifyDataSetChanged();
                 addItemUsingHandler();
                 onOffButtons(false);
