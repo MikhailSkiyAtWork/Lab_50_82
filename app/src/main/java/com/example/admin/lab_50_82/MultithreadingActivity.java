@@ -1,30 +1,41 @@
 package com.example.admin.lab_50_82;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class MultithreadingActivity extends ActionBarActivity {
+public class MultithreadingActivity extends Activity{
+
+    private static final int FIRST_ITEM = 0;
+    private static final int TENTH_ITEM = 10;
 
     private static final String TAG = "Multithreading";
-    private Button launchAsyncTask_;
-    private Button launchThread_;
-    private Button launchThreadViaHandler_;
+    private Button launchAsyncTaskButton_;
+    private Button launchThreadButton_;
+    private Button launchThreadViaHandlerButton_;
     private ListView listView_;
+
     private ArrayAdapter<String> adapter_;
-    private ArrayList<String> list_;
+    String[] values_;
     private Handler handler_;
     private int j_;
 
@@ -33,15 +44,15 @@ public class MultithreadingActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multithreading);
 
-        launchAsyncTask_ = (Button) findViewById(R.id.add_in_async_task);
-        launchThread_ = (Button) findViewById(R.id.add_in_thread_directly);
-        launchThreadViaHandler_ = (Button) findViewById(R.id.add_in_thread_via_handler);
+        launchAsyncTaskButton_ = (Button) findViewById(R.id.add_in_async_task);
+        launchThreadButton_ = (Button) findViewById(R.id.add_in_thread_directly);
+        launchThreadViaHandlerButton_ = (Button) findViewById(R.id.add_in_thread_via_handler);
 
-        String[] values = new String[]{getResources().getString(R.string.item_label)};
+        values_ = new String[]{getResources().getString(R.string.item_label)};
         listView_ = (ListView) this.findViewById(R.id.list_view);
 
-        list_ = new ArrayList<String>(Arrays.asList(values));
-        adapter_ = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list_);
+
+        adapter_ = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values_);
 
         listView_.setAdapter(adapter_);
 
@@ -49,50 +60,37 @@ public class MultithreadingActivity extends ActionBarActivity {
             public void handleMessage(android.os.Message message) {
                 updateAdapter(message.what);
                 if (isItTenthItem(message.what)) {
-                    onOffButtons(true);
+                    setButtonsEnabled(true);
                 }
-            };
+            }
+
+            ;
         };
+    }
 
-        launchAsyncTask_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list_.clear();
-                list_.add(getResources().getString(R.string.added_label));
-                adapter_.notifyDataSetChanged();
-                new addItemViaAsyncTask().execute();
-                onOffButtons(false);
-            }
-        });
-
-        launchThread_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list_.clear();
-                list_.add(getResources().getString(R.string.added_label));
-                adapter_.notifyDataSetChanged();
+    public void launchTask(View v) {
+        switch (v.getId()) {
+            case (R.id.add_in_thread_directly):
+                prepareList();
                 addItem();
-                onOffButtons(false);
-            }
-        });
-
-        launchThreadViaHandler_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list_.clear();
-                list_.add(getResources().getString(R.string.added_label));
-                adapter_.notifyDataSetChanged();
+                break;
+            case (R.id.add_in_thread_via_handler):
+                prepareList();
                 addItemUsingHandler();
-                onOffButtons(false);
-            }
-        });
+                break;
+            case (R.id.add_in_async_task):
+                prepareList();
+                new addItemViaAsyncTask().execute();
+                break;
+            default:
+                break;
+        }
     }
 
     public class addItemViaAsyncTask extends AsyncTask<String, Integer, Void> {
 
         @Override
         protected Void doInBackground(String... params) {
-
             for (int i = 1; i <= 10; i++) {
                 try {
                     Thread.sleep(1000);
@@ -108,7 +106,7 @@ public class MultithreadingActivity extends ActionBarActivity {
         protected void onProgressUpdate(Integer... value) {
             updateAdapter(value[0]);
             if (isItTenthItem(value[0])) {
-                onOffButtons(true);
+                setButtonsEnabled(true);
             }
         }
     }
@@ -123,13 +121,12 @@ public class MultithreadingActivity extends ActionBarActivity {
                     } catch (InterruptedException e) {
                         Log.e(TAG, e.toString());
                     }
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             updateAdapter(j_);
                             if (isItTenthItem(j_)) {
-                                onOffButtons(true);
+                                setButtonsEnabled(true);
                             }
                         }
                     });
@@ -143,12 +140,7 @@ public class MultithreadingActivity extends ActionBarActivity {
             @Override
             public void run() {
                 for (int i = 1; i <= 10; i++) {
-                    try {
-                        Thread.sleep(1000);
-                        handler_.sendEmptyMessage(i);
-                    } catch (InterruptedException e) {
-                        Log.e(TAG, e.toString());
-                    }
+                        handler_.sendMessageDelayed(handler_.obtainMessage(i),1000);
                 }
             }
         }).start();
@@ -178,8 +170,7 @@ public class MultithreadingActivity extends ActionBarActivity {
 
     private void updateAdapter(int number) {
         String value = Integer.toString(number);
-        list_.clear();
-        list_.add(value);
+        values_[FIRST_ITEM] = value;
         adapter_.notifyDataSetChanged();
     }
 
@@ -188,7 +179,7 @@ public class MultithreadingActivity extends ActionBarActivity {
      * @return True if counter == 10, false otherwise
      */
     private boolean isItTenthItem(int counter) {
-        if (counter != 10) {
+        if (counter != TENTH_ITEM) {
             return false;
         } else {
             return true;
@@ -200,17 +191,21 @@ public class MultithreadingActivity extends ActionBarActivity {
      * If on=true, so switch all buttons in On condition
      * If on=false, so switch all buttons in Off condition
      */
-    private void onOffButtons(boolean on) {
+    private void setButtonsEnabled(boolean on) {
         if (on) {
             // On all buttons
-            launchAsyncTask_.setEnabled(on);
-            launchThread_.setEnabled(on);
-            launchThreadViaHandler_.setEnabled(on);
+            launchAsyncTaskButton_.setEnabled(on);
+            launchThreadButton_.setEnabled(on);
+            launchThreadViaHandlerButton_.setEnabled(on);
         } else {
             // Off all buttons
-            launchAsyncTask_.setEnabled(on);
-            launchThread_.setEnabled(on);
-            launchThreadViaHandler_.setEnabled(on);
+            launchAsyncTaskButton_.setEnabled(on);
+            launchThreadButton_.setEnabled(on);
+            launchThreadViaHandlerButton_.setEnabled(on);
         }
+    }
+
+    private void prepareList(){
+        setButtonsEnabled(false);
     }
 }

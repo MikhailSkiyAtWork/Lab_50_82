@@ -15,16 +15,15 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Button for launching activity for Lab #50
         Button lab50Launcher = (Button) findViewById(R.id.launch_50_activity_button);
 
         lab50Launcher.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  Intent intent = new Intent(MainActivity.this, MultithreadingActivity.class);
-                  startActivity(intent);
-              }
-          }
+                                             @Override
+                                             public void onClick(View v) {
+                     Intent intent = new Intent(MainActivity.this, MultithreadingActivity.class);
+                     startActivity(intent);
+                 }
+             }
         );
 
         // Button for launching activity for Lab #82
